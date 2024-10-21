@@ -4,17 +4,23 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Notifications</a>
+                <a class="nav-link" href="#">Windows</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
+                <a class="nav-link" href="#">Mac</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="#">Android Apps</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Android Games</a>
+            </li>
+            <!-- <li class="nav-item">
                 <a class="nav-link text-truncate" href="#">Switch account</a>
             </li>
             <li class="nav-item dropdown">
@@ -25,7 +31,7 @@
                     <a class="dropdown-item" href="#">Another action</a>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
-            </li>
+            </li> -->
         </ul>
         <form class="form-inline my-2 my-lg-0 text-nowrap">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -35,7 +41,7 @@
 </nav>
 <div class="nav-scroller bg-white box-shadow">
     <nav class="nav nav-underline">
-        <a class="nav-link active" href="#">Dashboard</a>
+        <a class="nav-link active" href="#">Categories</a>
         <a class="nav-link" href="#"> Friends <span class="badge badge-pill bg-light align-text-bottom">27</span>
         </a>
         <a class="nav-link" href="#">Explore</a>
