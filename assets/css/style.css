@@ -5,6 +5,7 @@ body {
 
 body {
   padding-top: 56px;
+  background-color: #F5F5F5;
 }
 
 @media (max-width: 991px) {
@@ -78,3 +79,9 @@ body {
 .lh-100 { line-height: 1; }
 .lh-125 { line-height: 1.25; }
 .lh-150 { line-height: 1.5; }
+
+/* Homepage */
+.soft-thumb{
+    height: 40px;
+    margin-right: 10px;
+}

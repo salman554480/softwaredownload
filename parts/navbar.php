@@ -42,14 +42,15 @@
 <div class="nav-scroller bg-white box-shadow">
     <nav class="nav nav-underline">
         <a class="nav-link active" href="#">Categories</a>
-        <a class="nav-link" href="#"> Friends <span class="badge badge-pill bg-light align-text-bottom">27</span>
-        </a>
-        <a class="nav-link" href="#">Explore</a>
-        <a class="nav-link" href="#">Suggestions</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
+        <?php
+        require_once('parts/db.php');
+        $select_category = "SELECT * from category";
+        $result_category = mysqli_query($conn, $select_category);
+        while ($row_category =  mysqli_fetch_array($result_category)) {
+            $category_id = $row_category['category_id'];
+            $category_name = $row_category['category_name'];
+        ?>
+        <a class="nav-link" href="#"><?php echo $category_name; ?></a>
+        <?php } ?>
     </nav>
 </div>
