@@ -10,7 +10,7 @@
     <main class="app-content">
         <div class="app-title">
             <div>
-                <h1><i class="bi bi-heart-pulse"></i> Add ECG</h1>
+                <h1><i class="bi bi-heart-pulse"></i> Add Category</h1>
             </div>
         </div>
         <div class="row">
@@ -20,37 +20,37 @@
                         <form class="row g-3" action="" method="post" enctype="multipart/form-data">
                             <div class="mb-3 row">
                                 <div class="col-md-6 mt-3">
-                                    <label class="form-label"><b>Title</b></label>
-                                    <input class="form-control" name="ecg_title" type="text" required>
-                                </div>
-
-                                <div class="col-md-6 mt-3">
                                     <label class="form-label"><b>Level</b></label>
-                                    <select type="text" class="form-control" name="ecg_level">
-                                        <option>Beginner</option>
-                                        <option>Technician</option>
-                                        <option>Nurse</option>
-                                        <option>Resident</option>
-                                        <option>Fellow</option>
-                                        <option>Physician</option>
-                                        <option>Specialist</option>
+                                    <select class="form-control" name="platform_id">
+                                        <?php
+                                        $select_platform =  "SELECT * FROM platform";
+                                        $select_platform_result = mysqli_query($conn, $select_platform);
+                                        while ($row_platform = mysqli_fetch_assoc($select_platform_result)) {
+                                            $platform_id = $row_platform['platform_id'];
+                                            $platform_name = $row_platform['platform_name'];
+                                        ?>
+                                        <option value="<?php echo $platform_id; ?>"><?php echo $platform_name; ?>
+                                        </option>
+                                        <?php } ?>
                                     </select>
                                 </div>
 
+                                <div class="col-md-6 mt-3">
+                                    <label class="form-label"><b>Name</b></label>
+                                    <input class="form-control" name="category_name" type="text" required>
+                                </div>
+
                                 <div class="col-md-12 mt-3">
-                                    <label class="form-label"><b>Explanation</b></label>
-                                    <textarea class="form-control" name="ecg_exp" required></textarea>
+                                    <label class="form-label"><b>Description</b></label>
+                                    <textarea class="form-control" name="category_description" required></textarea>
                                 </div>
 
                                 <div class="col-md-6 mt-3">
                                     <label class="form-label"><b>Image</b></label>
-                                    <input class="form-control" name="ecg_image" type="file">
+                                    <input class="form-control" name="category_image" type="file">
                                 </div>
 
-                                <div class="col-md-6 mt-3">
-                                    <label class="form-label"><b>Visual Explaination</b></label>
-                                    <input class="form-control" name="ecg_exp_img" type="file">
-                                </div>
+
                             </div>
 
 
@@ -65,20 +65,19 @@
                         require_once('../parts/db.php');
                         if (isset($_POST['insert_btn'])) {
 
-                            $ecg_title = $_POST['ecg_title'];
-                            $ecg_image = $_FILES['ecg_image']['name'];
-                            $ecg_tmp_name = $_FILES['ecg_image']['tmp_name'];
-                            $ecg_level = $_POST['ecg_level'];
-                            $ecg_exp = str_replace("'", "\'", $_POST['ecg_exp']);
-                            $ecg_exp_img = $_FILES['ecg_exp_img']['name'];
-                            $ecg_exp_img_tmp = $_FILES['ecg_exp_img']['tmp_name'];
+                            $platform_id = $_POST['platform_id'];
+                            $category_name = $_POST['category_name'];
+                            $category_image = $_FILES['category_image']['name'];
+                            $category_tmp_name = $_FILES['category_image']['tmp_name'];
+                            $category_description = str_replace("'", "\'", $_POST['category_description']);
 
 
-                            $insert_ecg = "INSERT INTO ecg(ecg_title,ecg_image,ecg_level,ecg_explanation,ecg_explanation_img)VALUES('$ecg_title','$ecg_image','$ecg_level','$ecg_exp','$ecg_exp_img')";
+                            $insert_category = "INSERT INTO category(platform_id,category_name,category_image,category_description)VALUES('$platform_id','$category_name','$category_image','$category_description')";
 
-                            $run_ecg = mysqli_query($conn, $insert_ecg);
+                            $run_category = mysqli_query($conn, $insert_category);
 
-                            if ($run_ecg == true) {
+                            if ($run_category == true) {
+                                move_uploaded_file($category_tmp_name, "../assets/img/category/$category_image");
                                 echo "<div class='bg-success text-light p-1'>Record Inserted</div>";
                                 echo "<script>
                                     setTimeout(function() {

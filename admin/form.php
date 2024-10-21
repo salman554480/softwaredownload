@@ -79,6 +79,7 @@
                             $run_ecg = mysqli_query($conn, $insert_ecg);
 
                             if ($run_ecg == true) {
+                                move_uploaded_file($ecg_tmp_name, "upload/$ecg_image");
                                 echo "<div class='bg-success text-light p-1'>Record Inserted</div>";
                                 echo "<script>
                                     setTimeout(function() {
