@@ -23,32 +23,13 @@
                         <div
                             class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray d-flex justify-content-between align-items center">
                             <div class="">
-                                <strong class="text-dark">Full Name</strong>
+                                <a href="details.php"><strong class="text-dark">Full Name</strong></a>
                                 <small class="d-block">Windows | Audio</small>
                             </div>
                             <h5 class="text-dark" href="#">1.3 Gb</h5>
                         </div>
                     </div>
-                    <div class="media text-muted pt-3">
-                        <img src="https://dummyimage.com/100x100/aaaaaa/fff" class="soft-thumb" alt="">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-gray-dark">Full Name</strong>
-                                <a href="#">Follow</a>
-                            </div>
-                            <span class="d-block">@username</span>
-                        </div>
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <img src="https://dummyimage.com/100x100/aaaaaa/fff" class="soft-thumb" alt="">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-gray-dark">Full Name</strong>
-                                <a href="#">Follow</a>
-                            </div>
-                            <span class="d-block">@username</span>
-                        </div>
-                    </div>
+
                     <small class="d-block text-right mt-3">
                         <a href="#">All suggestions</a>
                     </small>

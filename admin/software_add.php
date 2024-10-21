@@ -93,6 +93,19 @@
                                     <label class="form-label"><b>Official Website</b></label>
                                     <input class="form-control" name="official_website" type="url" required>
                                 </div>
+                                <div class="col-md-6 mt-3">
+                                    <label class="form-label"><b>Meta Title</b></label>
+                                    <input class="form-control" name="meta_title" type="text" required>
+                                </div>
+                                <div class="col-md-6 mt-3">
+                                    <label class="form-label"><b>Meta Keyword</b></label>
+                                    <input class="form-control" name="meta_keyword" type="text" required>
+                                </div>
+
+                                <div class="col-md-12 mt-3">
+                                    <label class="form-label"><b>Meta Description</b></label>
+                                    <textarea class="form-control" name="meta_description"></textarea>
+                                </div>
                             </div>
 
                             <div class="mb-3 row">
@@ -119,6 +132,11 @@
                             $software_icon = $_FILES['software_icon']['name'];
                             $icon_tmp_name = $_FILES['software_icon']['tmp_name'];
 
+                            $meta_title = $_POST['meta_title'];
+                            $meta_keyword = $_POST['meta_keyword'];
+                            $meta_description = $_POST['meta_description'];
+
+
                             $timestamp = time();
                             $icon_extension = pathinfo($software_icon, PATHINFO_EXTENSION);
                             $formatted_software_name = strtolower(str_replace(' ', '_', $software_name));
@@ -132,6 +150,14 @@
                             $run_software = mysqli_query($conn, $insert_software);
 
                             if ($run_software) {
+
+                                $select_software = "SELECT * FROM software WHERE software_name='$software_name'";
+                                $run_select_software =  mysqli_query($conn, $select_software);
+                                $row_software = mysqli_fetch_array($run_select_software);
+                                $software_id =  $row_software['software_id'];
+
+                                
+
                                 move_uploaded_file($icon_tmp_name, "../assets/img/software/$software_icon");
                                 echo "<div class='bg-success text-light p-1'>Record Inserted</div>";
                                 echo "<script>

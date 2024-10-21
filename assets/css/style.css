@@ -1,13 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 html,
 body {
   overflow-x: hidden; /* Prevent scroll on narrow devices */
+  font-family: "Poppins", sans-serif;
 }
 
 body {
   padding-top: 56px;
   background-color: #F5F5F5;
+  font-family: "Poppins", sans-serif;
+}
+a{
+    text-decoration: none !important;
+    cursor: pointer !important;
 }
 
+
+.owl-carousel .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.owl-carousel img {
+    max-width: 100%;
+    height: auto;
+}
 @media (max-width: 991px) {
   .offcanvas-collapse {
     position: fixed;
@@ -79,9 +96,42 @@ body {
 .lh-100 { line-height: 1; }
 .lh-125 { line-height: 1.25; }
 .lh-150 { line-height: 1.5; }
+.text-light{
+    color:white
+}
+.text-white{
+    color:white
+}
+.breadcrumbs a{
+    color:white;
+}
 
+.btn-success{
+    background-color: #00856f !important;
+    border-color: #00856f;
+}
 /* Homepage */
 .soft-thumb{
     height: 40px;
     margin-right: 10px;
+}
+
+/* Details */
+.size-text{
+    font-weight: bold;
+    font-size: 40px;
+}
+.bar{
+    align-items: center;
+    background: linear-gradient(90deg, #05e6aa, #1cbdf9);
+    color: #fff;
+    display: flex;
+    height: 64px;
+}
+.meta-stats{
+    font-size: 12px;
+    line-height: 14px;
+}
+.stat-area{
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
 }
