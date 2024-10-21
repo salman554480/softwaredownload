@@ -70,8 +70,11 @@
                             $ecg_tmp_name = $_FILES['ecg_image']['tmp_name'];
                             $ecg_level = $_POST['ecg_level'];
                             $ecg_exp = str_replace("'", "\'", $_POST['ecg_exp']);
-                            $ecg_exp_img = $_FILES['ecg_exp_img']['name'];
-                            $ecg_exp_img_tmp = $_FILES['ecg_exp_img']['tmp_name'];
+
+                            $timestamp = time();
+                            $image_extension = pathinfo($ecg_image, PATHINFO_EXTENSION);
+                            $formatted_category_title = strtolower(str_replace(' ', '_', $ecg_title));
+                            $ecg_image = $timestamp . '_' . $formatted_category_title . '.' . $image_extension;
 
 
                             $insert_ecg = "INSERT INTO ecg(ecg_title,ecg_image,ecg_level,ecg_explanation,ecg_explanation_img)VALUES('$ecg_title','$ecg_image','$ecg_level','$ecg_exp','$ecg_exp_img')";

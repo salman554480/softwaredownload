@@ -71,6 +71,11 @@
                             $category_tmp_name = $_FILES['category_image']['tmp_name'];
                             $category_description = str_replace("'", "\'", $_POST['category_description']);
 
+                            $timestamp = time();
+                            $image_extension = pathinfo($category_image, PATHINFO_EXTENSION);
+                            $formatted_category_name = strtolower(str_replace(' ', '_', $category_name));
+                            $category_image = $timestamp . '_' . $formatted_category_name . '.' . $image_extension;
+
 
                             $insert_category = "INSERT INTO category(platform_id,category_name,category_image,category_description)VALUES('$platform_id','$category_name','$category_image','$category_description')";
 
