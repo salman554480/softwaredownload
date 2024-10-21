@@ -132,9 +132,9 @@
                             $software_icon = $_FILES['software_icon']['name'];
                             $icon_tmp_name = $_FILES['software_icon']['tmp_name'];
 
-                            $meta_title = $_POST['meta_title'];
+                            $meta_title = str_replace("'", "`'", $_POST['meta_title']);
+                            $meta_description = str_replace("'", "`'", $_POST['meta_description']);
                             $meta_keyword = $_POST['meta_keyword'];
-                            $meta_description = $_POST['meta_description'];
 
 
                             $timestamp = time();
@@ -156,7 +156,8 @@
                                 $row_software = mysqli_fetch_array($run_select_software);
                                 $software_id =  $row_software['software_id'];
 
-                                
+                                $insert_meta = "INSERT INTO meta(meta_title,meta_description,meta_keyword,meta_source,meta_source_id) VALUES('$meta_title','$meta_description','$meta_keyword','software','$software_id')";
+                                $run_insert_meta =  mysqli_query($conn, $insert_meta);
 
                                 move_uploaded_file($icon_tmp_name, "../assets/img/software/$software_icon");
                                 echo "<div class='bg-success text-light p-1'>Record Inserted</div>";
